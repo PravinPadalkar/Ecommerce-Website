@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "/vite.svg";
+import MyDropDown from "../utilities/MyDropDown";
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
         <div className="flex space-x-4">
           <span>cartlist Logo</span>
           <span>wishlist logo</span>
-          <span>Profile Section</span>
+          <MyDropDown/>
         </div>
     </header>
   );
