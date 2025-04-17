@@ -1,7 +1,19 @@
-import React from 'react'
+import React from "react";
+import logo from "/vite.svg";
 
 export default function Header() {
   return (
-    <div>Header</div>
-  )
+    <header className="bg-gray-50 px-6 py-4 h-[72px] flex justify-between shadow-md rounded-sm items-center mb-2">
+        <div className="flex items-center gap-1">
+          <img src={logo} className="w-12" alt="Logo" />
+          <h1 className="text-2xl">My Ecommerce</h1>
+        </div>
+
+        <div className="flex space-x-4">
+          <span>cartlist Logo</span>
+          <span>wishlist logo</span>
+          <span>Profile Section</span>
+        </div>
+    </header>
+  );
 }

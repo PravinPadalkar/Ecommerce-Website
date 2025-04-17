@@ -4,7 +4,7 @@ import { Outlet } from 'react-router'
 
 export default function Home() {
   return (
-    <div className='max-w-[1200px] mx-auto'>
+    <div className='max-w-[1200px] mx-2  xl:mx-auto font-roboto'>
         <Header/>
         <Outlet/>
     </div>
