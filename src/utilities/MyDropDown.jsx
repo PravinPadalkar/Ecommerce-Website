@@ -9,17 +9,18 @@ import {
   User,
 } from "@heroui/react";
 import { Link } from "react-router";
-
+import profileJpeg from '/profile.jpeg'
 export default function MyDropDown() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return isLoggedIn ? (
-    <Dropdown>
+    <Dropdown offset={16} radius="sm">
       <DropdownTrigger>
         <User
           as="button"
+          
           avatarProps={{
             isBordered: true,
-            src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+            src: profileJpeg,
           }}
           className="transition-transform"
           description="@pravinpadalkar"

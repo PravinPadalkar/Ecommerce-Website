@@ -1,7 +1,15 @@
 import React from 'react'
+import ProductCard from '../components/ProductCard'
 
 export default function ProductList() {
+
   return (
-    <div>ProductList</div>
+    <section >
+      <h1 className='text-xl font-bold'>Products List</h1>
+     <div className='grid grid-cols-4 gap-4'>
+     <ProductCard/>
+     
+     </div>
+    </section>
   )
 }
