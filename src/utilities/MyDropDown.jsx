@@ -12,19 +12,19 @@ import { Link } from "react-router";
 
 export default function MyDropDown() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  return isLoggedIn? (
+  return isLoggedIn ? (
     <Dropdown>
       <DropdownTrigger>
-             <User
-            as="button"
-            avatarProps={{
-              isBordered: true,
-              src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-            }}
-            className="transition-transform"
-            description="@pravinpadalkar"
-            name="Pravin Padalkar"
-          />
+        <User
+          as="button"
+          avatarProps={{
+            isBordered: true,
+            src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+          }}
+          className="transition-transform"
+          description="@pravinpadalkar"
+          name="Pravin Padalkar"
+        />
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem key="new">Order Histroy</DropdownItem>
@@ -33,5 +33,9 @@ export default function MyDropDown() {
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
-  ) :(<Button variant="bordered" onPress={()=>setIsLoggedIn(true)} >Login</Button>)
+  ) : (
+    <Button variant="bordered" onPress={() => setIsLoggedIn(true)}>
+      Login
+    </Button>
+  );
 }
