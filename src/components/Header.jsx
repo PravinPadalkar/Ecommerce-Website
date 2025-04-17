@@ -11,8 +11,8 @@ export default function Header() {
         </div>
 
         <div className="flex space-x-4">
-          <span>cartlist Logo</span>
-          <span>wishlist logo</span>
+          <span>CartList</span>
+          <span>wishlist</span>
           <MyDropDown/>
         </div>
     </header>

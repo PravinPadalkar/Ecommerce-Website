@@ -33,5 +33,5 @@ export default function MyDropDown() {
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
-  ) :(  <Link to='login'><Button variant="bordered" >Login</Button></Link>)
+  ) :(<Button variant="bordered" onPress={()=>setIsLoggedIn(true)} >Login</Button>)
 }
