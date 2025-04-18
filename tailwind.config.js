@@ -13,7 +13,7 @@ export default {
         roboto: ['Roboto', 'sans-serif'],
       },
       gridTemplateColumns: {
-        'custom-300': 'repeat(auto-fit, minmax(300px, 1fr))'
+        'custom-300': 'repeat(auto-fit, minmax(275px, 1fr))'
       },
     },
   },

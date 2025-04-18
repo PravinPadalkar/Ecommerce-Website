@@ -42,7 +42,7 @@ export default function ProductCard({id,imageUrl, title, category,price,rating})
       </CardBody>
       <CardFooter>
         <div className="flex justify-between w-full gap-2 mb-2">
-          <Button className="text-sm px-4" size="sm" v color="success" radius="sm" endContent={<FontAwesomeIcon className="fa-xl" icon={faCartShopping}></FontAwesomeIcon>}>Add To Cart</Button>
+          <Button className="text-sm px-4" size="sm" v color="success" radius="sm" >Add To Cart<FontAwesomeIcon className="fa-xl" icon={faCartShopping}></FontAwesomeIcon></Button>
           <Button className="text-sm px-4" variant="bordered" size="sm" color="default" radius="sm" >Add To WishList</Button>
         </div>
       </CardFooter>
