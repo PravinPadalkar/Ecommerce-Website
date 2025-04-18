@@ -2,18 +2,14 @@ import React from "react";
 import logo from "/logo.svg";
 import MyDropDown from "../utilities/MyDropDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCartShopping,
-  faCheckCircle,
-  faHeart,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping,faHeart} from "@fortawesome/free-solid-svg-icons";
 import { Badge } from "@heroui/react";
 import { Link } from "react-router";
 
 export default function Header() {
   return (
-    <header className="bg-gray-50 px-6 py-4 h-[72px] flex justify-between shadow-md rounded-sm items-center mb-2">
-      <div className="flex items-center gap-2 w-[500px]">
+    <header className=" px-4 md:px-8 py-4 h-[72px] flex justify-between shadow-md rounded-sm items-center mb-2  ">
+      <div className="flex items-center gap-4 w-[500px]">
         <img src={logo} className="w-12" alt="Logo" />
         <h1 className="text-2xl">My Ecommerce</h1>
       </div>
@@ -29,7 +25,7 @@ export default function Header() {
           </Badge>
 
           <Badge color="success" content={5} variant="shadow">
-            <Link to="/cartlist">
+            <Link to="/wishlist">
               <FontAwesomeIcon icon={faHeart} className="fa-2xl text-red-800" />
             </Link>
           </Badge>

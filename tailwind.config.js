@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
       },
+      gridTemplateColumns: {
+        'custom-300': 'repeat(auto-fit, minmax(300px, 1fr))'
+      },
     },
   },
   darkMode: "class",
