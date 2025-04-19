@@ -2,9 +2,11 @@ import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from 
 import { Button, Image } from "@heroui/react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useOutletContext } from "react-router";
 
-export default function WishList({wishList=[]}) {
-
+export default function WishList() {
+  const states = useOutletContext();  
+  const [wishList,setWishList] = states.wishState;
   return (
     <div className="max-w-[1000px] mx-auto">
       <p className="text-2xl font-bold  text-custom my-4 bg-custom-400">WishList</p>

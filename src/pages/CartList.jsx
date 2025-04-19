@@ -2,7 +2,10 @@ import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from 
 import { Button, Image } from "@heroui/react";
 import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export default function CartList({cartList=[]}) {
+import { useOutletContext } from "react-router";
+export default function CartList() {
+  const states = useOutletContext();
+  const [cartList,setCartList] = states.cartState;
   return (
     <div className="max-w-[1000px] mx-auto">
       <p className="text-2xl font-bold  text-custom my-4 bg-custom-400">CartList</p>
@@ -21,11 +24,11 @@ export default function CartList({cartList=[]}) {
         <TableColumn className="w-1/6 text-lg text-gray-800">Action</TableColumn>
       </TableHeader>
       <TableBody emptyContent={"No Data to Show"}>
-        {cartList.map(({ id, title, image, price, quantity = 1 }) => (
+        {cartList.map(({ id, title, imageUrl, price, quantity = 1 }) => (
           <TableRow key={id}>
             <TableCell>{id}</TableCell>
             <TableCell>
-              <Image radius="none" src={image} className=" w-full h-24 object-contain p-2" />
+              <Image radius="none" src={imageUrl} className=" w-full h-24 object-contain p-2" />
             </TableCell>
             <TableCell>{title}</TableCell>
             <TableCell>₹{price}</TableCell>
@@ -40,7 +43,7 @@ export default function CartList({cartList=[]}) {
                 </Button>
               </div>
             </TableCell>
-            <TableCell className="text-center">Total</TableCell>
+            <TableCell className="text-center">{price}</TableCell>
             <TableCell>
               <div className="flex h-full items-center justify-center ">
                 <Button isIconOnly size="sm" radius="md" aria-label="Like" color="danger">
@@ -50,7 +53,7 @@ export default function CartList({cartList=[]}) {
             </TableCell>
           </TableRow>
         ))}
-        { cartList && <TableRow>
+        { cartList.length  && <TableRow>
           <TableCell  colSpan={7} className=" text-right font-bold text-lg">
             Grand Total: ₹5600
           </TableCell>
