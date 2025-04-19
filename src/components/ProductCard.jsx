@@ -28,14 +28,14 @@ export default function ProductCard({id,imageUrl, title, category,price,rating})
           className="fa-xl absolute top-4 right-4 z-10 cursor-pointer text-green-800"
         />
       </CardHeader>
-      <Divider />
+      <Divider /> 
       <CardBody className="flex justify-between">
         <h3 className=" font-bold text-lg">
           {title}
         </h3>
         <span className="inline text-lg my-2">{category}</span>
         <div className="flex justify-between opacity-90">
-          <p>Rating: ⭐⭐⭐⭐</p>
+          <p>Rating: {rating.rate}⭐⭐⭐⭐</p>
           <Divider orientation="vertical" />
           <p>Price: ${price}</p>
         </div>
