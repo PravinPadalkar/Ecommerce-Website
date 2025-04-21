@@ -12,7 +12,7 @@ export default function CartList() {
   const handleDelete=(id)=>{
     setCartList((prevState)=> prevState.filter((item)=>item.id !== id))
   }
-  console.log('render')
+  console.log('rendering')
   const handleDecreaseQuantity = (id)=>{
     setCartList((prevState)=>{
       return prevState.map((item)=>{
@@ -24,7 +24,6 @@ export default function CartList() {
       })
     })
   }
-  console.log(cartList)
   const handleIncreaseQuantity =(id)=>{
     setCartList((prevState)=>{
       return prevState.map((item)=>{
@@ -36,6 +35,7 @@ export default function CartList() {
     })
   }
   useEffect(()=>{
+    console.log('useEffec')
     setGrandTotal(()=>Math.round(cartList.reduce((acc,{price,quantity})=>acc+price*quantity,0)*100)/100)
   },[cartList])
   return (
@@ -71,7 +71,7 @@ export default function CartList() {
                   </Button>
                 </div>
               </TableCell>
-              <TableCell className="text-center">{Math.round(quantity*price*100)/100}</TableCell>
+              <TableCell className="text-center">₹{Math.round(quantity*price*100)/100}</TableCell>
               <TableCell>
                 <div className="flex h-full items-center justify-center ">
                   <Button isIconOnly size="sm" radius="md" aria-label="Like" color="danger"  onPress={()=>handleDelete(id)}>
