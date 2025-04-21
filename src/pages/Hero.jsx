@@ -34,7 +34,7 @@ export default function Hero() {
       </div>
       <div className="flex gap-4">
         <Button color="success" className="text-white shadow-md self-center">
-          Explore Products
+          Explore All Products
         </Button>
         <Button color="success" className="text-white shadow-md self-center">
           Explore Products
