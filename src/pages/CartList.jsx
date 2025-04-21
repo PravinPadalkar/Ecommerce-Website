@@ -12,7 +12,6 @@ export default function CartList() {
   const handleDelete=(id)=>{
     setCartList((prevState)=> prevState.filter((item)=>item.id !== id))
   }
-  console.log('rendering')
   const handleDecreaseQuantity = (id)=>{
     setCartList((prevState)=>{
       return prevState.map((item)=>{
@@ -35,7 +34,6 @@ export default function CartList() {
     })
   }
   useEffect(()=>{
-    console.log('useEffec')
     setGrandTotal(()=>Math.round(cartList.reduce((acc,{price,quantity})=>acc+price*quantity,0)*100)/100)
   },[cartList])
   return (
