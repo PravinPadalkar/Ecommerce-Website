@@ -8,13 +8,15 @@ import CartList from "./pages/CartList";
 import ProductList from "./pages/ProductList";
 import Login from "./pages/Login";
 import WishList from "./pages/WishList";
+import Hero from "./pages/Hero";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="" element={<ProductList/>}/>
+          <Route path="" element={<Hero/>}/>
+          <Route path="productlist" element={<ProductList/>}/>
           <Route path="cartlist" element={<CartList />} />
           <Route path="wishlist" element={<WishList />} />
         </Route>

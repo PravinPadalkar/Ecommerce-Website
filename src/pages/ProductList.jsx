@@ -4,10 +4,7 @@ import { useOutletContext } from "react-router";
 export default function ProductList() {
   const states = useOutletContext();
   const [productList,setProductList] = states.productState;
-  
-  useEffect(()=>{
-    fetch('https://fakestoreapi.com/products').then((res)=>res.json()).then((data)=>setProductList(data))
-  },[])
+
   return (
     <section>
       <h1 className="text-2xl font-bold  text-custom my-4 bg-custom-400">Products List</h1>
