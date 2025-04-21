@@ -25,20 +25,15 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
       return [...prevState, { id, imageUrl, title, category, price, rating, quantity: 1 }];
     });
   };
-  const handleAddToWish=(id, imageUrl, title,price)=>{
-    setWishList((prevState)=>{
-      const existingItem = prevState.find((item)=>item.id == id)
-      if(existingItem){
-        return prevState.map((item)=>{
-          if(item.id==id){
-            return {...item,quantity:item.quantity+1}
-          }
-          return item
-        })
+  const handleAddToWish = (id, imageUrl, title, price) => {
+    setWishList((prevState) => {
+      const existingItem = prevState.find((item) => item.id == id);
+      if (!existingItem) {
+        return [...prevState, { id, imageUrl, title, price }];
       }
-      return [...prevState,{id,imageUrl,title,price}]
-    })
-  }
+      return prevState
+    });
+  };
   return (
     <Card shadow="sm" radius="md">
       <CardHeader className="h-[200px] justify-center">
@@ -71,7 +66,14 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
           >
             Add To Cart<FontAwesomeIcon className="fa-xl" icon={faCartShopping}></FontAwesomeIcon>
           </Button>
-          <Button className="text-sm px-4" variant="bordered" size="sm" color="default" radius="sm" onPress={()=>handleAddToWish(id,imageUrl,title,price)}>
+          <Button
+            className="text-sm px-4"
+            variant="bordered"
+            size="sm"
+            color="default"
+            radius="sm"
+            onPress={() => handleAddToWish(id, imageUrl, title, price)}
+          >
             Add To WishList
           </Button>
         </div>

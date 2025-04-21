@@ -3,7 +3,6 @@ import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownSection,
   DropdownItem,
   Button,
   User,
@@ -20,7 +19,6 @@ export default function MyDropDown() {
           
           avatarProps={{
             isBordered: true,
-            src: profileJpeg,
           }}
           className="transition-transform"
           description="@pravinpadalkar"

@@ -9,7 +9,7 @@ import { Link } from "react-router";
 export default function Header() {
   return (
     <header className=" px-4 md:px-8 py-4 h-[72px] flex justify-between shadow-md rounded-sm items-center mb-2  ">
-      <div className="flex items-center gap-4 w-[500px]">
+      <div className="flex items-center gap-4 ">
         <img src={logo} className="w-12" alt="Logo" />
         <Link to="" className="hidden md:block text-2xl">My Ecommerce</Link>
       </div>
