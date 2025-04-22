@@ -4,27 +4,32 @@ import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useOutletContext } from "react-router";
 import { useEffect, useState } from "react";
+import { addToast } from "@heroui/react";
 export default function CartList() {
   const states = useOutletContext();
   const [cartList, setCartList] = states.cartState;
-  const [orderHistoryList,setOrderHistoryList] = states.orderHistroyState;
+  const [orderHistoryList, setOrderHistoryList] = states.orderHistroyState;
   const [grandTotal, setGrandTotal] = useState(0);
 
   const handleDelete = (id) => {
     setCartList((prevState) => prevState.filter((item) => item.id !== id));
   };
-  const handleOrderSubmit=()=>{
+  const handleOrderSubmit = () => {
     let newOrder = {
-      orderId:orderHistoryList.length + 1,
+      orderId: orderHistoryList.length + 1,
       orderDate: new Date(),
-      noOfItems :cartList.reduce((acc,{quantity})=>acc+quantity,0),
-      paymentMode:'UPI',
-      grandTotal : grandTotal,
-    }
-    setOrderHistoryList((prevState)=>[...prevState,newOrder])
-    setCartList([])
-    alert('order Succesfull')
-  }
+      noOfItems: cartList.reduce((acc, { quantity }) => acc + quantity, 0),
+      paymentMode: "UPI",
+      grandTotal: grandTotal,
+    };
+    setOrderHistoryList((prevState) => [...prevState, newOrder]);
+    setCartList([]);
+    addToast({
+      title: "Congratulations!!",
+      description: "Your Order Placed Succefully",
+      color:'success'
+    });
+  };
   const handleDecreaseQuantity = (id) => {
     setCartList((prevState) => {
       return prevState.map((item) => {
@@ -123,8 +128,8 @@ export default function CartList() {
                 Grand Total: ₹{grandTotal}
               </TableCell>
               <TableCell className=" text-right font-bold text-lg">
-                <Button color="success" variant="shadow" onPress={()=>handleOrderSubmit()}>
-                 Order Now
+                <Button color="success" variant="shadow" onPress={() => handleOrderSubmit()}>
+                  Order Now
                 </Button>
               </TableCell>
             </TableRow>
