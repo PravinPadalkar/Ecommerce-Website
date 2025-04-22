@@ -12,7 +12,7 @@ export default function Hero() {
       .then((data) => setProductList(data));
   }, []);
   return (
-    <main className="min-h-[calc(90vh)] flex justify-center items-center flex-col gap-8">
+    <main className="min-h-[calc(90vh)] flex justify-start items-center flex-col gap-8">
       <div>
         <h1 className="block text-4xl font-bold  text-custom my-4 bg-custom-400">
           Welcome To My Ecommerce
