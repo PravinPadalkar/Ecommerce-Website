@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardHeader, CardBody, CardFooter, Image, Divider, Button } from "@heroui/react";
+import { Card, CardHeader, CardBody, CardFooter, Image, Divider, Button, addToast } from "@heroui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
@@ -24,6 +24,11 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
       }
       return [...prevState, { id, imageUrl, title, category, price, rating, quantity: 1 }];
     });
+    addToast({
+      title: "Added To Cart!!",
+      description: `Product with ID : ${id} Added To Cart`,
+      color:'success'
+    });
   };
   const handleAddToWish = (id, imageUrl, title, price) => {
     setWishList((prevState) => {
@@ -32,6 +37,11 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
         return [...prevState, { id, imageUrl, title, price }];
       }
       return prevState
+    });
+    addToast({
+      title: "Added To Wish!!",
+      description: `Product with ID : ${id} Added To WishList`,
+      color:'success'
     });
   };
   return (
