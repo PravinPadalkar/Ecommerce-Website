@@ -1,6 +1,6 @@
 import { Button } from "@heroui/react";
 import React, { useEffect } from "react";
-import { useOutletContext } from "react-router";
+import { Link, useOutletContext } from "react-router";
 import ProductCard from "../components/ProductCard";
 
 export default function Hero() {
@@ -33,11 +33,8 @@ export default function Hero() {
         ))}
       </div>
       <div className="flex gap-4">
-        <Button color="success" className="text-white shadow-md self-center">
-          Explore All Products
-        </Button>
-        <Button color="success" className="text-white shadow-md self-center">
-          Explore Products
+        <Button color="warning" radius="sm" variant="bordered" className="shadow-md self-center">
+          <Link to="productlist">Explore All Products</Link>
         </Button>
       </div>
     </main>
