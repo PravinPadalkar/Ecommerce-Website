@@ -32,7 +32,7 @@ export default function OrderHistory() {
             Grand Total
           </TableColumn>
         </TableHeader>
-        <TableBody>
+        <TableBody emptyContent={"You haven't maid any order yet, Order Now!!"}>
           {orderHistoryList.map(({ orderId, orderDate, paymentMode, noOfItems, grandTotal }) => (
             <TableRow>
               <TableCell className="text-center">{orderId}</TableCell>

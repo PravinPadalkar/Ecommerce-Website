@@ -11,7 +11,6 @@ export default function Hero() {
       .then((res) => res.json())
       .then((data) => setProductList(data));
   }, []);
-  console.log(productList);
   return (
     <main className="min-h-[calc(90vh)] flex justify-center items-center flex-col gap-8">
       <div>
