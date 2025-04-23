@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Card, CardBody, CardFooter, CardHeader, Divider, Image } from "@heroui/react";
+import {Image } from "@heroui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import useStars from "../hooks/useStars";
