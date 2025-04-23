@@ -2,7 +2,8 @@ import { Button } from "@heroui/react";
 import React, { useEffect } from "react";
 import { Link, useOutletContext } from "react-router";
 import ProductCard from "../components/ProductCard";
-
+import Lottie from "lottie-react";
+import animationData from "../animations/Hero.json";
 export default function Hero() {
   const states = useOutletContext();
   const [productList, setProductList] = states.productState;
@@ -12,11 +13,14 @@ export default function Hero() {
       .then((data) => setProductList(data));
   }, []);
   return (
-    <main className="min-h-[calc(90vh)] flex justify-start items-center flex-col gap-8">
+    <main className="min-h-[calc(90vh)] flex justify-start items-center flex-col gap-8 mb-10">
       <div>
-        <h1 className="block text-4xl font-bold  text-custom my-4 bg-custom-400">
+        <h1 className="block text-left text-4xl font-bold  text-custom my-4 bg-custom-400 text-orange-500">
           Welcome To My Ecommerce
         </h1>
+      </div>
+      <div className="w-2/4">
+        <Lottie animationData={animationData} loop={true} />
       </div>
       <div className="grid grid-cols-custom-400 w-full gap-x-4 gap-y-8">
         {productList.slice(0, 4).map(({ id, image, title, category, price, rating }) => (
