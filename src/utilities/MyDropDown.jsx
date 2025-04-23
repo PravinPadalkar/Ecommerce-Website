@@ -26,7 +26,7 @@ export default function MyDropDown() {
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="new" color="primary">Order Histroy</DropdownItem>
+        <DropdownItem key="new" color="success" textValue="order"><Link to="orderhistory"><div className="w-full"> Order Histroy</div></Link></DropdownItem>
         <DropdownItem key="delete" className="text-danger" color="danger" onPress={()=>setIsLoggedIn(false)}>
           Logout
         </DropdownItem>
