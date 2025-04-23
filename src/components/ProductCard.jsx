@@ -13,9 +13,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons/faCartShopping";
-import { useOutletContext } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
+import useStars from "../hooks/useStars";
 
 export default function ProductCard({ id, imageUrl, title, category, price, rating }) {
+  const navigate = useNavigate()
   const states = useOutletContext();
   const [, setWishList] = states.wishState;
   const [cartList, setCartList] = states.cartState;
@@ -82,7 +84,7 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
         <h3 className=" font-bold text-lg">{title}</h3>
         <span className="inline text-lg my-2">{category}</span>
         <div className="flex justify-between opacity-90">
-          <p>Rating: {rating.rate}⭐⭐⭐⭐</p>
+          <p>Rating: {useStars(rating)}</p>
           <Divider orientation="vertical" />
           <p>Price: ${price}</p>
         </div>
@@ -97,9 +99,16 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
             radius="sm"
             onPress={() => handleAddToCart(id, imageUrl, title, category, price, rating)}
           >
-            Add To Cart<FontAwesomeIcon className="fa-xl" icon={faCartShopping}></FontAwesomeIcon>
+            Add To Cart<FontAwesomeIcon className="fa-lg" icon={faCartShopping}></FontAwesomeIcon>
           </Button>
-          <Button className="text-sm px-4" variant="bordered" size="sm" color="default" radius="sm">
+          <Button
+            className="text-sm px-4"
+            variant="bordered"
+            size="sm"
+            color="default"
+            radius="sm"
+            onPress={() =>navigate(`/product/${id}`) }
+          >
             View Details
           </Button>
         </div>
