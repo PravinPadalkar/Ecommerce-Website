@@ -43,16 +43,15 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
     setWishList((prevState) => {
       const existingItem = prevState.find((item) => item.id == id);
       if (!existingItem) {
-        setTimeout(
-          () =>
-            addToast({
-              title: "Added To Wish!!",
-              description: `Product with ID : ${id} Added To WishList`,
-              color: "success",
-            }),
-          0
-        );
-        setIsLiked(true)
+        setTimeout(() => {
+          setIsLiked(true);
+          addToast({
+            title: "Added To Wish!!",
+            description: `Product with ID : ${id} Added To WishList`,
+            color: "success",
+          });
+        }, 0);
+
         return [...prevState, { id, imageUrl, title, price }];
       } else {
         setTimeout(
