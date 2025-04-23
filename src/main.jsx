@@ -11,5 +11,6 @@ createRoot(document.getElementById('root')).render(
       <App />
     </HeroUIProvider>
   </StrictMode>,
+  // just to make main ahead of everything
 )
   
