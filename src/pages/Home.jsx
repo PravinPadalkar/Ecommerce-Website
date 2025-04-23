@@ -6,6 +6,7 @@ export default function Home() {
   const [cartList, setCartList] = useState([]);
   const [wishList, setWishList] = useState([]);
   const [productList, setProductList] = useState([]);
+  const [orderHistoryList,setOrderHistoryList] = useState([]);
   return (
     <div className="max-w-[1300px] mx-4  xl:mx-auto font-roboto  ">
       <Header />
@@ -14,6 +15,7 @@ export default function Home() {
           productState: [productList, setProductList],
           cartState: [cartList, setCartList],
           wishState: [wishList, setWishList],
+          orderHistroyState:[orderHistoryList,setOrderHistoryList]
         }}
       />
     </div>
