@@ -1,10 +1,11 @@
 import { Button } from "@heroui/react";
 import React, { useEffect } from "react";
-import { Link, useOutletContext } from "react-router";
+import { Link, useNavigate, useOutletContext } from "react-router";
 import ProductCard from "../components/ProductCard";
 import Lottie from "lottie-react";
 import animationData from "../animations/Hero.json";
 export default function Hero() {
+  const navigate = useNavigate();
   const states = useOutletContext();
   const [productList, setProductList] = states.productState;
   useEffect(() => {
@@ -36,8 +37,14 @@ export default function Hero() {
         ))}
       </div>
       <div className="flex gap-4">
-        <Button color="warning" radius="sm" variant="bordered" className="shadow-md self-center">
-          <Link to="productlist">Explore All Products</Link>
+        <Button
+          color="warning"
+          radius="sm"
+          variant="bordered"
+          className="shadow-md self-center"
+          onPress={() => navigate('productlist')}
+        >
+          Explore All Products
         </Button>
       </div>
     </main>
