@@ -1,14 +1,16 @@
 import { faHistory } from "@fortawesome/free-solid-svg-icons/faHistory";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@heroui/table";
+import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@heroui/react";
 import { useOutletContext } from "react-router";
 export default function OrderHistory() {
   const states = useOutletContext();
   
   const [orderHistoryList, setOrderHistoryList] = states.orderHistroyState;
   console.log(orderHistoryList)
+
   return (
+    
     <div className="max-w-[1000px] mx-auto">
       <div className="flex items-center gap-2 mb-4">
         <p className="text-2xl font-bold  text-custom my-4 bg-custom-400">Order History</p>

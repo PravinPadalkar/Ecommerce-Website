@@ -1,22 +1,15 @@
 import React, { useState } from "react";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-  User,
-} from "@heroui/react";
-import { Link } from "react-router";
-import profileJpeg from '/profile.jpeg'
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, User } from "@heroui/react";
+import { useNavigate } from "react-router";
+
 export default function MyDropDown() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const navigate = useNavigate();
   return isLoggedIn ? (
     <Dropdown offset={16} radius="sm">
       <DropdownTrigger>
         <User
           as="button"
-          
           avatarProps={{
             isBordered: true,
           }}
@@ -26,8 +19,20 @@ export default function MyDropDown() {
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="new" color="success" textValue="order"><Link to="orderhistory"><div className="w-full"> Order Histroy</div></Link></DropdownItem>
-        <DropdownItem key="delete" className="text-danger" color="danger" onPress={()=>setIsLoggedIn(false)}>
+        <DropdownItem
+          key="new"
+          color="success"
+          textValue="order"
+          onPress={() => navigate("/orderhistory")}
+        >
+          Order Histroy
+        </DropdownItem>
+        <DropdownItem
+          key="delete"
+          className="text-danger"
+          color="danger"
+          onPress={() => setIsLoggedIn(false)}
+        >
           Logout
         </DropdownItem>
       </DropdownMenu>

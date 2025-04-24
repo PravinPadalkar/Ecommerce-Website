@@ -9,7 +9,7 @@ export default function Home() {
   const [orderHistoryList,setOrderHistoryList] = useState([]);
   return (
     <div className="max-w-[1300px] mx-4  xl:mx-auto font-roboto  ">
-      <Header />
+      <Header wishList={wishList} cartList={cartList} />
       <Outlet
         context={{
           productState: [productList, setProductList],
