@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router";
 export default function Header({wishList,cartList}) {
   const navigate = useNavigate();
   return (
-    <header className=" px-4 md:px-8 py-4 h-[72px] bg-white flex justify-between shadow-md rounded-sm items-center mb-2 sticky top-0 z-10 ">
+    <header className=" px-4 md:px-8 py-4 h-[72px] bg-white flex justify-between shadow-md rounded-sm items-center mb-2 sticky top-0 z-10">
       <div className="flex items-center gap-4 ">
         <img src={logo} className="w-12" alt="Logo" />
         <Link to="" className="hidden md:block text-2xl">

@@ -6,7 +6,7 @@ import { HeroUIProvider, ToastProvider } from "@heroui/react";
 
 createRoot(document.getElementById("root")).render(
   <HeroUIProvider>
-    <ToastProvider toastProps={{timeout:1000}} />
+    <ToastProvider toastProps={{timeout:2000}} />
     <App />
   </HeroUIProvider>
   // Too visualize main
