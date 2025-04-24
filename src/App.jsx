@@ -11,6 +11,7 @@ import WishList from "./pages/WishList";
 import Hero from "./pages/Hero";
 import OrderHistory from "./pages/OrderHistory";
 import ProductDetails from "./pages/ProductDetails";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="product/:id" element={<ProductDetails />} />
         </Route>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </BrowserRouter>
   );
