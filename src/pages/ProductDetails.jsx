@@ -13,9 +13,9 @@ export default function ProductDetails() {
   }, []);
 
   return (
-    <>
-      <h1 className="text-2xl font-bold  text-custom my-4 bg-custom-400 mb-8">Product Details</h1>
-      <div shadow="sm" radius="md" className="flex flex-col md:flex-row gap-8 shadow-md py-8">
+    <div className="mx-4">
+      <h1 className="text-2xl font-bold  text-custom my-4  bg-custom-400 mb-8">Product Details</h1>
+      <div shadow="sm" radius="md" className="flex flex-col md:flex-row gap-8 shadow-md py-8 px-4">
         <div className="h-[300px] flex justify-center  flex-1  ">
           <Image
             className="h-[300px] justify-center object-fill"
@@ -34,6 +34,6 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
