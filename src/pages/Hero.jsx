@@ -1,6 +1,6 @@
 import { Button } from "@heroui/react";
 import React, { useEffect } from "react";
-import { Link, useNavigate, useOutletContext } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
 import ProductCard from "../components/ProductCard";
 import Lottie from "lottie-react";
 import animationData from "../animations/Hero.json";
@@ -8,7 +8,7 @@ export default function Hero() {
   const navigate = useNavigate();
   const states = useOutletContext();
   const [productList, setProductList] = states.productState;
-  useEffect(() => {
+  useEffect(() => { 
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => setProductList(data));

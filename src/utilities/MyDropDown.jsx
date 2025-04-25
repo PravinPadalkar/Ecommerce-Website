@@ -3,7 +3,7 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, User } f
 import { useNavigate } from "react-router";
 
 export default function MyDropDown() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   return isLoggedIn ? (
     <Dropdown offset={16} radius="sm">
@@ -38,7 +38,7 @@ export default function MyDropDown() {
       </DropdownMenu>
     </Dropdown>
   ) : (
-    <Button variant="bordered" onPress={() => setIsLoggedIn(true)}>
+    <Button variant="bordered" onPress={() => navigate('/login')}>
       Login
     </Button>
   );

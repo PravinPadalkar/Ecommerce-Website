@@ -4,17 +4,17 @@ import MyDropDown from "../utilities/MyDropDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Badge } from "@heroui/react";
-import { Link, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 
 export default function Header({wishList,cartList}) {
   const navigate = useNavigate();
   return (
     <header className=" px-4 md:px-8 py-4 h-[72px] bg-white flex justify-between shadow-md rounded-sm items-center mb-2 sticky top-0 z-10">
-      <div className="flex items-center gap-4 ">
+      <div className="flex items-center gap-4 cursor-pointer " onClick={()=>navigate('/')}>
         <img src={logo} className="w-12" alt="Logo" />
-        <Link to="" className="hidden md:block text-2xl">
+        <div className="hidden md:block text-2xl">
           My Ecommerce
-        </Link>
+        </div>
       </div>
       <div className="flex gap-4 md:gap-12">
         <div className="flex gap-4 items-center mt-1">
