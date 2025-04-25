@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 export default function useLocalStroage(key, initialData) {
   const [data, setData] = useState(initialData);
-    console.log(data)
+
   useEffect(() => {
     const existingData = JSON.parse(localStorage.getItem(key));
-    console.log(existingData)
+    console.log(existingData);
     if (existingData) {
       setData(existingData);
     } else {
