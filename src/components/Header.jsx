@@ -9,7 +9,7 @@ import { UsersListContext } from "../contexts/UsersListContext";
 
 export default function Header({ wishList, cartList }) {
   const navigate = useNavigate();
-  const {UsersList, setUsersList} = useContext(UsersListContext);
+  const {usersList, setUsersList} = useContext(UsersListContext);
 
   return (
     <header className=" px-4 md:px-8 py-4 h-[72px] bg-white flex justify-between shadow-md rounded-sm items-center mb-2 ">

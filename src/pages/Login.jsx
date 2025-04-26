@@ -5,12 +5,13 @@ import { UsersListContext } from "../contexts/UsersListContext";
 
 export default function Login(props) {
   const navigate = useNavigate();
-  const { usersList,setIsAuthenticated } = useContext(UsersListContext);
+  const { usersList,setIsAuthenticated,setUserDetails} = useContext(UsersListContext);
   const validateUser = (username, password) => {
     const existingUser = usersList.find((user) => user.username == username);
     if (existingUser) {
       if (existingUser.password == password) {
         setIsAuthenticated(true);
+        setUserDetails(existingUser)
         navigate("/");
         addToast({
           title: "Login Successful!!",

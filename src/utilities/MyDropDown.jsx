@@ -4,8 +4,9 @@ import { useNavigate } from "react-router";
 import { UsersListContext } from "../contexts/UsersListContext";
 
 export default function MyDropDown() {
-  const { isAuthenticated, setIsAuthenticated } = useContext(UsersListContext);
+  const { isAuthenticated, setIsAuthenticated ,userDetails } = useContext(UsersListContext);
   const navigate = useNavigate();
+  if(!isAuthenticated) navigate('/login')
   return isAuthenticated ? (
     <Dropdown offset={16} radius="sm">
       <DropdownTrigger>
@@ -15,8 +16,8 @@ export default function MyDropDown() {
             isBordered: true,
           }}
           className="transition-transform"
-          description="@pravinpadalkar"
-          name="Pravin Padalkar"
+          description={userDetails.username}
+          name={userDetails.fullName}
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
