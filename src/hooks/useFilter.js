@@ -2,6 +2,6 @@ import React, { useState } from 'react'
 
 export default function useFilter(data,callback) {
     const [query,setQuery] =  useState('')
-    const filteredData = data.filter((item) => callback(item).toLowerCase().includes(query));
+    const filteredData = data.filter((item) => callback(item).toLowerCase().includes(query.toLocaleLowerCase()));
     return [filteredData,setQuery]
 }

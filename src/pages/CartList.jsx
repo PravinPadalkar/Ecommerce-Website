@@ -13,6 +13,10 @@ export default function CartList() {
 
   const handleDelete = (id) => {
     setCartList((prevState) => prevState.filter((item) => item.id !== id));
+    addToast({
+      title: `Item with id: ${id} Deleted succefully!!`,
+      color: "danger",
+    });
   };
   const handleOrderSubmit = () => {
     let newOrder = {
@@ -27,7 +31,7 @@ export default function CartList() {
     addToast({
       title: "Congratulations!!",
       description: "Your Order Placed Succefully",
-      color:'success'
+      color: "success",
     });
   };
   const handleDecreaseQuantity = (id) => {

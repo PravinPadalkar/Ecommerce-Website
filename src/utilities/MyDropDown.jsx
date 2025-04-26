@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, User } from "@heroui/react";
 import { useNavigate } from "react-router";
 import { UsersListContext } from "../contexts/UsersListContext";
@@ -6,9 +6,8 @@ import { UsersListContext } from "../contexts/UsersListContext";
 export default function MyDropDown() {
   const { isAuthenticated, setIsAuthenticated ,userDetails } = useContext(UsersListContext);
   const navigate = useNavigate();
-  if(!isAuthenticated) navigate('/login')
   return isAuthenticated ? (
-    <Dropdown offset={16} radius="sm">
+    <Dropdown offset={16} radius="xs">
       <DropdownTrigger>
         <User
           as="button"

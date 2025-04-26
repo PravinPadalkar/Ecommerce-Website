@@ -1,4 +1,4 @@
-import { Button } from "@heroui/react";
+import { Button, Spinner } from "@heroui/react";
 import React, { useEffect } from "react";
 import { useNavigate, useOutletContext } from "react-router";
 import ProductCard from "../components/ProductCard";
@@ -13,6 +13,7 @@ export default function Hero() {
       .then((res) => res.json())
       .then((data) => setProductList(data));
   }, []);
+  if(productList.length===0) return  <Spinner label="Loading" size="lg" />
   return (
     <main className="min-h-[calc(90vh)] flex justify-start items-center flex-col gap-8 mb-10">
       <div>
