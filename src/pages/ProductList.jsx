@@ -4,17 +4,27 @@ import { useOutletContext } from "react-router";
 import MyPagination from "../utilities/MyPagination";
 import SearchInput from "../utilities/SearchInput";
 import SelectInput from "../utilities/SelectInput";
-import useFilter from '../hooks/useFilter'
+import useFilter from "../hooks/useFilter";
 export default function ProductList() {
   const states = useOutletContext();
   const [productList, setProductList] = states.productState;
+
   const [page, setPage] = useState(1);
-  const NoOfItems = 4;
+  const NoOfItems = 8;
 
-
-  const [filteredList,setSearchQuery] = useFilter(productList,(data)=>data.title)
-  const [filteredList2,setSelectQuery] = useFilter(productList,(data)=>data.category)
-  console.log(filteredList2)
+  const [filteredByTitle, setSearchQuery] = useFilter(productList, (data) => data.title);
+  const [filteredByCategory, setSelectQuery] = useFilter(productList, (data) => data.category);
+  let filteredList = productList;
+  if(filteredByTitle.length===0 && filteredByCategory.length>0){
+    filteredList = filteredByCategory
+  } else if(filteredByTitle.length>0 && filteredByCategory.length===0){
+    filteredList = filteredByTitle
+  }else{
+    filteredList = filteredByTitle.filter((product) =>
+      filteredByCategory.some((p) => p.id === product.id)
+    );
+  }
+  console.log(filteredList);
   useEffect(() => {
     if (!productList.length) {
       fetch("https://fakestoreapi.com/products")
@@ -30,10 +40,7 @@ export default function ProductList() {
           <SearchInput setSearchQuery={setSearchQuery} />
           <SelectInput setSelectQuery={setSelectQuery} />
         </div>
-        <MyPagination
-          total={Math.floor(filteredList.length / NoOfItems)}
-          setPage={setPage}
-        />
+        <MyPagination total={Math.floor(filteredList.length / NoOfItems)} setPage={setPage} />
       </div>
       <div className="grid grid-cols-custom-300 gap-x-4 gap-y-8">
         {filteredList
