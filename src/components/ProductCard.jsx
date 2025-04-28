@@ -17,9 +17,9 @@ import { useNavigate, useOutletContext } from "react-router";
 import useStars from "../hooks/useStars";
 
 export default function ProductCard({ id, imageUrl, title, category, price, rating }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const states = useOutletContext();
-  const [, setWishList] = states.wishState;
+  const [wishList, setWishList] = states.wishState;
   const [cartList, setCartList] = states.cartState;
   const [isLiked, setIsLiked] = useState(false);
   const handleAddToCart = (id, imageUrl, title, category, price, rating) => {
@@ -44,16 +44,15 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
   const handleAddToWish = (id, imageUrl, title, price) => {
     setWishList((prevState) => {
       const existingItem = prevState.find((item) => item.id == id);
+      console.log("function");
       if (!existingItem) {
         setTimeout(() => {
-          setIsLiked(true);
           addToast({
             title: "Added To Wish!!",
             description: `Product with ID : ${id} Added To WishList`,
             color: "success",
           });
         }, 0);
-
         return [...prevState, { id, imageUrl, title, price }];
       } else {
         setTimeout(
@@ -68,6 +67,8 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
         return prevState;
       }
     });
+  console.log('clicked')
+  console.log(wishList)
   };
   return (
     <Card shadow="sm" radius="md">
@@ -75,7 +76,7 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
         <Image className="h-[170px] object-fill" src={imageUrl} alt="ProductImg" radius="lg" />
         <FontAwesomeIcon
           icon={isLiked ? solidHeart : regularHeart}
-          onClick={() => handleAddToWish(id, imageUrl, title, price)}
+          onClick={(e) => handleAddToWish(id, imageUrl, title, price)}
           className="fa-xl absolute top-4 right-4 z-10 cursor-pointer text-green-600"
         />
       </CardHeader>
@@ -107,7 +108,7 @@ export default function ProductCard({ id, imageUrl, title, category, price, rati
             size="sm"
             color="default"
             radius="sm"
-            onPress={() =>navigate(`/product/${id}`) }
+            onPress={() => navigate(`/product/${id}`)}
           >
             View Details
           </Button>
