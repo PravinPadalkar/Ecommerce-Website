@@ -1,5 +1,5 @@
 import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@heroui/table";
-import { Button, Image } from "@heroui/react";
+import { addToast, Button, Image } from "@heroui/react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useOutletContext } from "react-router";
@@ -8,11 +8,15 @@ export default function WishList() {
   const states = useOutletContext();
   const [wishList, setWishList] = states.wishState;
 
-  const handleDelete=(id)=>{
-    setWishList((prevState)=>{
-      return prevState.filter((item)=>item.id != id)
-    })
-  }
+  const handleDelete = (id) => {
+    setWishList((prevState) => {
+      return prevState.filter((item) => item.id != id);
+    });
+    addToast({
+      title: `Item with id: ${id} Deleted succefully!!`,
+      color: "danger",
+    });
+  };
   return (
     <div className="max-w-[1000px] mx-auto">
       <p className="text-2xl font-bold  text-custom my-4 bg-custom-400">WishList</p>
@@ -36,7 +40,14 @@ export default function WishList() {
 
               <TableCell>
                 <div className="flex h-full items-center justify-center ">
-                  <Button isIconOnly size="sm" radius="md" aria-label="Like" color="danger" onPress={()=>handleDelete(id)}>
+                  <Button
+                    isIconOnly
+                    size="sm"
+                    radius="md"
+                    aria-label="Like"
+                    color="danger"
+                    onPress={() => handleDelete(id)}
+                  >
                     <FontAwesomeIcon icon={faTrash} className="fa-lg " />
                   </Button>
                 </div>

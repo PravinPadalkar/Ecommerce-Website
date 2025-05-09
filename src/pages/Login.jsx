@@ -10,7 +10,7 @@ export default function Login(props) {
     const existingUser = usersList.find((user) => user.username == username);
     if (existingUser) {
       if (existingUser.password == password) {
-        setIsAuthenticated(true);
+        setIsAuthenticated(true); 
         setUserDetails(existingUser)
         navigate("/");
         addToast({

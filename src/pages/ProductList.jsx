@@ -5,6 +5,7 @@ import MyPagination from "../utilities/MyPagination";
 import SearchInput from "../utilities/SearchInput";
 import SelectInput from "../utilities/SelectInput";
 import useFilter from "../hooks/useFilter";
+import { addToast, Spinner } from "@heroui/react";
 export default function ProductList() {
   const states = useOutletContext();
   const [productList, setProductList] = states.productState;
@@ -17,6 +18,10 @@ export default function ProductList() {
   let filteredList = productList;
   if(filteredByTitle.length===0 && filteredByCategory.length>0){
     filteredList = filteredByCategory
+    addToast({
+      title: "No Data Available For Given Search",
+      color: "danger",
+    })
   } else if(filteredByTitle.length>0 && filteredByCategory.length===0){
     filteredList = filteredByTitle
   }else{
@@ -24,7 +29,7 @@ export default function ProductList() {
       filteredByCategory.some((p) => p.id === product.id)
     );
   }
-  console.log(filteredList);
+
   useEffect(() => {
     if (!productList.length) {
       fetch("https://fakestoreapi.com/products")
@@ -32,6 +37,7 @@ export default function ProductList() {
         .then((data) => setProductList(data));
     }
   }, []);
+  if(productList.length===0) return  <Spinner label="Loading" size="lg" />
   return (
     <section>
       <h1 className="text-2xl font-bold  text-custom my-4 bg-custom-400">Products List</h1>
